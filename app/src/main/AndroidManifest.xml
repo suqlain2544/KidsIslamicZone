@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.friendsproducts.kidzzone">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Splash"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".student.activities.main.StudentHome"
+            android:label="@string/title_activity_student_home"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".student.activities.main.AllCourses"
+            android:label="@string/title_activity_all_course"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".student.activities.main.NuraniQaida"
+            android:label="Nurani Qaida" />
+        <activity
+            android:name=".student.activities.nqactivities.AdvanceNuraniQaida"
+            android:label="Ending Of Rules" />
+        <activity
+            android:name=".FirstScreen"
+            android:label="Login" />
+        <activity
+            android:name=".RegisterTeacher"
+            android:label="Teacher Registration" />
+        <activity
+            android:name=".RegisterStudent"
+            android:label="Student Registration" />
+        <activity android:name=".student.activities.main.StudentProfile" />
+        <activity android:name=".student.activities.main.TeacherList" />
+        <activity
+            android:name=".hijricalender.CaldroidSampleActivity"
+            android:label="Hijri Calender" />
+        <activity android:name=".teacher.activities.TeacherHome" />
+        <activity android:name=".teacher.activities.TeacherProfile" />
+        <activity android:name=".teacher.activities.StudentRequestList" />
+        <activity android:name=".teacher.activities.StudentsList" />
+
+        <!-- Namaz Activity And recivers -->
+        <activity
+            android:name=".namaz_qibla.Muazzin"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".namaz_qibla.SettingsActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <receiver android:name=".namaz_qibla.adhanalarm.receiver.StartNotificationReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".namaz_qibla.adhanalarm.service.StartNotificationService" />
+        <service
+            android:name=".namaz_qibla.NotificationService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".namaz_qibla.adhanalarm.widget.TimetableWidgetProvider"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_timetable" />
+        </receiver>
+        <receiver
+            android:name=".namaz_qibla.adhanalarm.widget.NextNotificationWidgetProvider"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_next_notification" />
+        </receiver>
+        <!-- Namaz End -->
+        <activity android:name=".student.activities.main.Chat" />
+        <activity android:name=".teacher.activities.Chat" />
+        <activity android:name=".student.activities.gkactivities.GK" />
+        <activity android:name=".student.activities.gkactivities.SliderActivity" />
+        <activity android:name=".student.activities.nqactivities.Aayaat" />
+        <activity android:name=".student.activities.main.DuaName" />
+        <activity android:name=".student.activities.main.Duain" />
+        <activity android:name=".student.activities.main.Namazz" />
+        <activity android:name=".student.activities.main.NamazDetail"></activity>
+    </application>
+
+</manifest>
